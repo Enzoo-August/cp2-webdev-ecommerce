@@ -7,20 +7,21 @@ import Card from "../components/Card";
 
 
 export default function Home() {
-  const [reactRepos, setReactRepos] = useState([]);
-  const API = import.meta.env.API;
+  const [electronics, GuardaItem] = useState([]);
+  const API = import.meta.env.VITE_API_URL;
+
 
   useEffect(() => {
-    fetch(`${API}react&per_page=5`)
-      .then((res) => res.json())
-      .then((data) => setReactRepos(data.items));
+    fetch(`${API}/electronics`)
+      .then(response => response.json())
+      .then(data => GuardaItem(data));
   }, []);
   
   return (
     <div>
         <h2 className="text-2xl font-bold mb-4">Bem-vindo ao Fiap Commerce!</h2>
         <Section titulo="Eletronicos"  >
-        {reactRepos.map((PegaItem) => {
+        {electronics.map((PegaItem) => {
           return (
             <Card {...PegaItem} />
           );
@@ -28,7 +29,7 @@ export default function Home() {
         </Section>
 
          <Section titulo="Roupas" >
-        {reactRepos.map((PegaItem) => {
+        {electronics.map((PegaItem) => {
           return (
             <Card {...PegaItem} />
           );
@@ -36,7 +37,7 @@ export default function Home() {
         </Section>
 
          <Section titulo="Joias">
-        {reactRepos.map((PegaItem) => {
+        {electronics.map((PegaItem) => {
           return (
             <Card {...PegaItem} />
           );

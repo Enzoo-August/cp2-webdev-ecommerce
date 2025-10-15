@@ -3,7 +3,7 @@ export default function Section({titulo = "Section1", children = "Teste1112"}) {
     <div className="flex flex-wrap mb-3 flex-col bg-blue-950">
         <h1>{titulo}</h1>
         <div className="flex gap-5">
-          {children}
+          {"Produtos em destaque:"}
         </div>
         
     </div>
